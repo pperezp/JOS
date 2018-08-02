@@ -3,15 +3,20 @@ package jic;
 import java.util.ArrayList;
 
 public class Comando {
-    private String nombre;
+    private String[] nombres;
     private ArrayList<String> argumentos;
     private String descripcion;
+    private Ejecutable ejecutable;
 
     public Comando() {
     }
 
-    public Comando(String nombre) {
-        this.nombre = nombre;
+    /**
+     * Este constructor es para que los comandos tenga multinombres
+     * @param nombres 
+     */
+    public Comando(String... nombres) {
+        this.nombres = nombres;
         this.argumentos = new ArrayList<>();
     }
 
@@ -20,8 +25,18 @@ public class Comando {
         return this;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String[] getNombres() {
+        return nombres;
+    }
+    
+    public boolean isNombre(String nombre){
+        for (String n : nombres) {
+            if(n.equals(nombre)){
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     public ArrayList<String> getArgumentos() {
@@ -37,5 +52,12 @@ public class Comando {
         return this;
     }
     
+    public Comando setEjecucion(Ejecutable exec){
+        this.ejecutable = exec;
+        return this;
+    }
     
+    public void ejecutar(){
+        this.ejecutable.ejecutar();
+    }
 }
