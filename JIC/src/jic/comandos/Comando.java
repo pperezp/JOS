@@ -1,5 +1,6 @@
 package jic.comandos;
 
+import jic.interprete.Ejecutable;
 import java.util.ArrayList;
 
 public class Comando {

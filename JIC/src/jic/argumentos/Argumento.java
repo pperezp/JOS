@@ -1,7 +1,6 @@
 package jic.argumentos;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Argumento {
 
@@ -87,7 +86,7 @@ public class Argumento {
 
 //    public static void main(String[] args) {
 //        while (true) {
-//            String lineaComando = new Scanner(System.in).nextLine();
+//            String lineaComando = new java.util.Scanner(System.in).nextLine();
 //
 //            try {
 //                for (String arg : Argumento.getArgumentos(lineaComando)) {

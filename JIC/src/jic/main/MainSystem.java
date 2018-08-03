@@ -2,14 +2,17 @@ package jic.main;
 
 import java.util.Date;
 import java.util.Scanner;
+import jic.archivos.Archivo;
 import jic.comandos.Comando;
-import jic.comandos.Interprete;
+import jic.interprete.Interprete;
 
 public class MainSystem {
-    public static String ruta = "/";
+    private static Archivo raiz;
+    public static Archivo archivoActual;
+    public static Archivo archivoPadre;
     private final String VERSION = "v0.1";
     public static final String NOMBRE  = "JIC";
-    public static String prompt = MainSystem.NOMBRE+":$ ";
+    public static String prompt;
     
     private final Scanner scan;
     private final Interprete interprete;
@@ -20,6 +23,8 @@ public class MainSystem {
     public MainSystem(){
         this.interprete = new Interprete();
         this.scan = new Scanner(System.in);
+        
+        init();
     }
     
     public void run(){
@@ -30,5 +35,12 @@ public class MainSystem {
             lineaComando = scan.nextLine();
             interprete.ejecutar(lineaComando);
         }
+    }
+
+    private void init() {
+        raiz = new Archivo("/", false);
+        archivoActual = raiz;
+        archivoPadre = null;
+        prompt  = MainSystem.NOMBRE+":$ ";
     }
 }
