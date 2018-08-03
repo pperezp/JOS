@@ -1,4 +1,4 @@
-package jic;
+package jic.comandos;
 
 import java.util.ArrayList;
 
@@ -25,8 +25,13 @@ public class Comando {
         return this;
     }
 
-    public String[] getNombres() {
-        return nombres;
+    public String getNombres() {
+        String str = "";
+        for (String nombre : nombres) {
+            str += nombre + ",";
+        }
+        
+        return str.substring(0, str.length()-1);
     }
     
     public boolean isNombre(String nombre){
@@ -57,7 +62,7 @@ public class Comando {
         return this;
     }
     
-    public void ejecutar(){
-        this.ejecutable.ejecutar();
+    public void ejecutar(String[] argumentos){
+        this.ejecutable.ejecutar(argumentos);
     }
 }

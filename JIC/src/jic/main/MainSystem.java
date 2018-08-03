@@ -1,16 +1,18 @@
-package jic;
+package jic.main;
 
 import java.util.Date;
 import java.util.Scanner;
+import jic.comandos.Comando;
+import jic.comandos.Interprete;
 
 public class MainSystem {
     public static String ruta = "/";
     private final String VERSION = "v0.1";
-    private final String NOMBRE  = "JIC";
-    private String prompt = NOMBRE+":$ ";
+    public static final String NOMBRE  = "JIC";
+    public static String prompt = MainSystem.NOMBRE+":$ ";
     
-    private Scanner scan;
-    private Interprete interprete;
+    private final Scanner scan;
+    private final Interprete interprete;
     private String lineaComando;
     private Comando comandoActual;
     
@@ -21,8 +23,7 @@ public class MainSystem {
     }
     
     public void run(){
-        System.out.println(NOMBRE+" - "+VERSION);
-        System.out.println(new Date());
+        System.out.println(NOMBRE+" - "+VERSION+" - "+new Date());
         
         while(true){
             System.out.print(prompt);

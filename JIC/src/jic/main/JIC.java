@@ -1,4 +1,4 @@
-package jic;
+package jic.main;
 
 public class JIC {
 
